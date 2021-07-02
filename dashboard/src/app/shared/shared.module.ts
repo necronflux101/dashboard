@@ -5,6 +5,10 @@ import { RouterModule } from '@angular/router';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
+import { DrawerSidesheetComponent } from './drawer-sidesheet/drawer-sidesheet.component';
+import { MobileDrawerComponent } from './mobile-drawer/mobile-drawer.component';
+import { SidePanelNavbarComponent } from './side-panel-navbar/side-panel-navbar.component';
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
 
 
@@ -15,10 +19,18 @@ import { far } from '@fortawesome/free-regular-svg-icons';
     FontAwesomeModule
   ],
   declarations: [
-    HeaderComponent  
+    HeaderComponent,
+    DrawerSidesheetComponent,
+    MobileDrawerComponent,
+    SidePanelNavbarComponent,
+    BreadcrumbsComponent
   ],
   exports: [
-    HeaderComponent 
+    HeaderComponent,
+    DrawerSidesheetComponent,
+    MobileDrawerComponent,
+    SidePanelNavbarComponent,
+    BreadcrumbsComponent
   ]
 })
 export class SharedModule { 
