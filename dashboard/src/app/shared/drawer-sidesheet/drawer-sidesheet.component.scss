@@ -1,0 +1,22 @@
+$sidesheet-base-color: rgb(245,245,245);
+$base-font: sans-serif;
+
+.sidesheet-container{
+    width: fit-content;
+    min-width: 25vw;
+    height: calc(100% - 5vw);
+    left: 5vw;
+    top: 5vw;
+    position: absolute;
+    background: $sidesheet-base-color;
+    .sidesheet-title{
+        .sidesheet-accordian-container{
+            .accordion-item{
+                
+            }
+        }
+        .sidesheet-item{
+            font-family: $base-font;
+        }
+    }
+}

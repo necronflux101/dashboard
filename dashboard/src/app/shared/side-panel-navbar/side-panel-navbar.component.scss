@@ -1,0 +1,14 @@
+$navbar-basecolor: rgb(28, 41, 59);
+
+.navbar-container {
+    top: 5vw;
+    position: absolute;
+    height: calc(100% - 5vw);
+    width: 5vw;
+    background: $navbar-basecolor;
+    left: 0;
+    .nav-options {
+        .nav-module-icon {
+        }
+    }
+}
