@@ -1,0 +1,128 @@
+[
+    {
+      "module_name": "Home",
+      "child_modules": [
+        {
+          "title": "Dashboard",
+          "data": "",
+          "image": "../../../assets/images/dashboard.png",
+          "child_modules": [
+            {
+              "category": "Dashboard",
+              "title": "Dashboard",
+              "label": "Dashboard 1",
+              "list": []
+            },
+            {
+              "category": "Dashboard",
+              "title": "Dashboard",
+              "label": "Dashboard 2",
+              "list": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "module_name": "Fleet",
+      "child_modules": [
+        {
+          "title": "Fleet Operations",
+          "data": "",
+          "image" : "../../../assets/images/anchor.png",
+          "child_modules": [
+            {
+              "category": "Project",
+              "title": "First Fleet",
+              "label": "First Fleet",
+              "data": "",
+              "list": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "module_name": "Work",
+      "child_modules": [
+        {
+          "title": "Statistics",
+          "data": "",
+          "image": "../../../assets/images/chart.png",
+          "child_modules": [
+            {
+              "category": "Project",
+              "title": "Dashboard 1",
+              "label": "Dashboard 1",
+              "data": "",
+              "list": []
+            },
+            {
+              "category": "PI",
+              "title": "Performance Indicator",
+              "label": "PI",
+              "data": "",
+              "list": [
+                {
+                  "title": "Indicator",
+                  "label": "Chart 1",
+                  "data": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "module_name": "Statistics",
+      "child_modules": [
+        {
+          "title": "Procurement",
+          "data": "",
+          "image": "../../../assets/images/shopping-cart.png",
+          "child_modules": [
+            {
+              "category": "Research",
+              "title": "Research",
+              "label": "My Research",
+              "data": "",
+              "list": []
+            },
+            {
+              "category": "PI",
+              "title": "Performance Indicator",
+              "label": "PI",
+              "data": "",
+              "list": [
+                {
+                  "title": "Indicator",
+                  "label": "Chart 1",
+                  "data": ""
+                },
+                {
+                  "title": "Indicator",
+                  "label": "Chart 2",
+                  "data": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Project",
+          "data": "",
+          "image": "../../../assets/images/checklist.png",
+          "child_modules": [
+            {
+              "category": "Project",
+              "title": "Project Level 1",
+              "label": "Project Level 1",
+              "data": "",
+              "list": []
+            }
+          ]
+        }
+      ]
+    }
+  ]

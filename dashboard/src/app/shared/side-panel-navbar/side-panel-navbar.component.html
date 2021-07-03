@@ -1,10 +1,10 @@
 <div class="navbar-container">
-    <div class="nav-options">
+    <div class="nav-options" *ngFor="let option of optionList; let i = index">
         <div class="nav-module-icon">
-
+            <img [src]="option?.image">
         </div>
         <p class="nav-module-label">
-            
+            {{option?.title}}
         </p>
     </div>
 </div>

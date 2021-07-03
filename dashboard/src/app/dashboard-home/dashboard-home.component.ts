@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SiteWideConfigurationService } from '../state/sitewide-configuration/sitewide-configuration.service';
 
 @Component({
   selector: 'app-dashboard-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private sitewideConfigService: SiteWideConfigurationService
+  ) { }
 
   ngOnInit(): void {
+    this.getNavSectionDataServiceCall();
+  }
+
+  getNavSectionDataServiceCall(): void {
+    this.sitewideConfigService.getNavSectionData().subscribe();
   }
 
 }

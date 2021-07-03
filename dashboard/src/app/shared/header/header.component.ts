@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SiteWideConfigurationQuery } from 'src/app/state/sitewide-configuration/sitewide-configuration.query';
+import { SiteWideConfigurationService } from 'src/app/state/sitewide-configuration/sitewide-configuration.service';
 
 @Component({
   selector: 'app-header',
@@ -7,21 +9,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  navigationList = ['Fleet', 'Work', 'Statistics'];
+  navigationList: Array<any> = [];
   isAccountOptionsOpen = false;
+  homeOptions = null;
 
-  constructor() { }
+  constructor(
+    private sitewideConfigService: SiteWideConfigurationService,
+    private sitewideConfigQuery: SiteWideConfigurationQuery
+  ) { }
 
   ngOnInit(): void {
+    this.getNavOptions();
   }
 
-  openAccountOptions(): void{
-    if(this.isAccountOptionsOpen){
+  getNavOptions() {
+    this.sitewideConfigService.getData().subscribe((isLoaded) => {
+      if (isLoaded) {
+        this.navigationList = [];
+        this.sitewideConfigQuery.getValue().navOptions.forEach((navItem) => {
+          if (navItem?.module_name === 'Home') {
+            this.homeOptions = navItem;
+          }
+          else {
+            this.navigationList.push(navItem);
+          }
+        });
+        console.log('list', this.navigationList);
+      }
+    })
+  }
+
+  openAccountOptions(): void {
+    if (this.isAccountOptionsOpen) {
       this.isAccountOptionsOpen = false;
     }
-    else{
+    else {
       this.isAccountOptionsOpen = true;
     }
   }
 
+  selectModule(moduleData: any): void {
+    console.log('selected', moduleData);
+    this.sitewideConfigService.updateActiveModule(moduleData);
+  }
 }

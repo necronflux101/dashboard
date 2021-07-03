@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SiteWideConfigurationService } from 'src/app/state/sitewide-configuration/sitewide-configuration.service';
 
 @Component({
   selector: 'app-side-panel-navbar',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidePanelNavbarComponent implements OnInit {
 
-  constructor() { }
+  optionList: any = [];
+  constructor(
+    public sitewideConfigService: SiteWideConfigurationService
+  ) { }
 
   ngOnInit(): void {
+    this.initData();
   }
 
+  initData() {
+    this.sitewideConfigService.getActiveModule().subscribe((moduleData) => {
+      this.optionList = [];
+      console.log(moduleData);
+      moduleData?.child_modules?.forEach((element: any) => {
+        this.optionList.push(element);
+      });
+      console.log(this.optionList);
+    })
+  }
 }

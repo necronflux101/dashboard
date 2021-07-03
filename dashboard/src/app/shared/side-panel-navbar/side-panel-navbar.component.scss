@@ -9,6 +9,12 @@ $navbar-basecolor: rgb(28, 41, 59);
     left: 0;
     .nav-options {
         .nav-module-icon {
+            img{
+                max-width: 1.5rem;
+            }
+        }
+        .nav-module-label{
+            color: white;
         }
     }
 }

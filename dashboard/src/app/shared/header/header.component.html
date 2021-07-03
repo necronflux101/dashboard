@@ -9,8 +9,8 @@
         </div>
         <div class="nav-wrapper">
             <div class="nav-tab" *ngFor="let tab of navigationList; let i = index">
-                <div class="tab-item">
-                    {{tab}}
+                <div class="tab-item" (click)="selectModule(tab)">
+                    {{tab?.module_name}}
                 </div>
             </div>
         </div>

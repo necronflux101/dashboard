@@ -9,6 +9,7 @@ import { DrawerSidesheetComponent } from './drawer-sidesheet/drawer-sidesheet.co
 import { MobileDrawerComponent } from './mobile-drawer/mobile-drawer.component';
 import { SidePanelNavbarComponent } from './side-panel-navbar/side-panel-navbar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -16,7 +17,8 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
   imports: [
     CommonModule,
     RouterModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   declarations: [
     HeaderComponent,
