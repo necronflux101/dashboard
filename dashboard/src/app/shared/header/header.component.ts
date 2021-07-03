@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreadCrumbsService } from 'src/app/state/breadcrumbs/breadcrumbs.service';
 import { SiteWideConfigurationQuery } from 'src/app/state/sitewide-configuration/sitewide-configuration.query';
 import { SiteWideConfigurationService } from 'src/app/state/sitewide-configuration/sitewide-configuration.service';
 
@@ -15,7 +16,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private sitewideConfigService: SiteWideConfigurationService,
-    private sitewideConfigQuery: SiteWideConfigurationQuery
+    private sitewideConfigQuery: SiteWideConfigurationQuery,
+    private breadCrumbsService: BreadCrumbsService
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +31,10 @@ export class HeaderComponent implements OnInit {
         this.sitewideConfigQuery.getValue().navOptions.forEach((navItem) => {
           if (navItem?.module_name === 'Home') {
             this.homeOptions = navItem;
+            // Setting Default to Home Dashboard
+            this.selectModule(this.homeOptions);
+            this.sitewideConfigService.updateActiveSubModule(navItem?.child_modules[0]);
+            this.setBreadCrumbs(this.homeOptions);
           }
           else {
             this.navigationList.push(navItem);
@@ -50,6 +56,20 @@ export class HeaderComponent implements OnInit {
 
   selectModule(moduleData: any): void {
     console.log('selected', moduleData);
+    this.setBreadCrumbs(moduleData);
     this.sitewideConfigService.updateActiveModule(moduleData);
+    this.sitewideConfigService.updateActiveSubModule(moduleData?.child_modules[0]);
+  }
+
+  setBreadCrumbs(moduleData: any): void {
+    const breadcrumbspath = [];
+    breadcrumbspath.push(moduleData.module_name)
+    breadcrumbspath.push(moduleData?.child_modules[0]?.title);
+    breadcrumbspath.push(moduleData?.child_modules[0]?.child_modules[0]?.title);
+    if(moduleData?.child_modules[0]?.child_modules[0]?.list.length > 0){
+      breadcrumbspath.push(moduleData?.child_modules[0]?.child_modules[0]?.list[0]?.title);
+    }
+    this.breadCrumbsService.updateBreadCrumbsState(breadcrumbspath);
+    this.sitewideConfigService.updateBreadCrumbs(breadcrumbspath);
   }
 }

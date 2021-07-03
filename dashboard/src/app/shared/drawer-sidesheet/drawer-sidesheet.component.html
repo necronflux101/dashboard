@@ -1,12 +1,39 @@
 <div class="sidesheet-container">
-    <div class="sidesheet-title">
-        <div class="sidesheet-accordian-container">
-            <div class="accordion-item">
-                
+    <div class="sidesheet-title-wrapper" *ngIf="title && title !== ''">
+        <h2 class="title">
+            {{title | uppercase}}
+        </h2>
+        <div class="plus">
+            <fa-icon icon="plus" size="lg"></fa-icon>
+        </div>
+    </div>
+    <div class="sidesheet-body-wrapper">
+        <div *ngFor="let option of optionList; let i = index">
+            <ngb-accordion class="accordion" #acc="ngbAccordion" *ngIf="option?.list?.length > 0">
+                <ngb-panel>
+                    <ng-template ngbPanelTitle>
+                        <span>&#9733; {{option?.label}}</span>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                        <ul>
+                            <li *ngFor="let item of option?.list" (click)="selectedOption(option,item)">
+                                {{item?.label}}
+                            </li>
+                        </ul>
+                    </ng-template>
+                </ngb-panel>
+            </ngb-accordion>
+            <div class="text" *ngIf="option?.list?.length === 0">
+                <img>
+                <span (click)="selectedOption(option)">
+                    {{option?.label}}
+                </span>
             </div>
         </div>
+
+
         <div class="sidesheet-item">
-            
+
         </div>
     </div>
 </div>

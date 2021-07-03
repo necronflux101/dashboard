@@ -10,6 +10,7 @@ import { MobileDrawerComponent } from './mobile-drawer/mobile-drawer.component';
 import { SidePanelNavbarComponent } from './side-panel-navbar/side-panel-navbar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     RouterModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbAccordionModule
   ],
   declarations: [
     HeaderComponent,

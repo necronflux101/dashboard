@@ -1,4 +1,9 @@
 <app-header></app-header>
-<app-side-panel-navbar></app-side-panel-navbar>
-<app-drawer-sidesheet></app-drawer-sidesheet>
-<router-outlet></router-outlet>
+<div class="home-container">
+    <app-side-panel-navbar></app-side-panel-navbar>
+    <app-drawer-sidesheet></app-drawer-sidesheet>
+    <div class="custom-viewport-container">
+        <app-breadcrumbs></app-breadcrumbs>
+        <div #custom></div>
+    </div>
+</div>

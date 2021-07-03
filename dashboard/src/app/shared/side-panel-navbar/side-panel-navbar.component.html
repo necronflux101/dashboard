@@ -1,5 +1,5 @@
 <div class="navbar-container">
-    <div class="nav-options" *ngFor="let option of optionList; let i = index">
+    <div class="nav-options" *ngFor="let option of optionList; let i = index" (click)="selectModule(option)">
         <div class="nav-module-icon">
             <img [src]="option?.image">
         </div>

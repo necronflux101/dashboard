@@ -1,0 +1,13 @@
+.breadcrumb-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    img {
+        max-width: 2vw;
+        margin: 1rem;
+    }
+    .breadcrumb-item {
+        width: fit-content;
+        margin-top: 1rem;
+    }
+}

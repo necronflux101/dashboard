@@ -1,0 +1,10 @@
+.home-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    height: 100vh;
+    position: fixed;
+    .custom-viewport-container{
+        width: 67vw;
+    }
+}

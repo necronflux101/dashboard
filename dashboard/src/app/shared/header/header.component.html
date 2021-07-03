@@ -5,7 +5,7 @@
         </div>
         <div class="home-icon-wrapper">
             <!-- <i class="fa fa-home" aria-hidden="true"></i> -->
-            <fa-icon icon="home" size="2x"></fa-icon>
+            <fa-icon icon="home" size="2x" (click)="selectModule(homeOptions)"></fa-icon>
         </div>
         <div class="nav-wrapper">
             <div class="nav-tab" *ngFor="let tab of navigationList; let i = index">

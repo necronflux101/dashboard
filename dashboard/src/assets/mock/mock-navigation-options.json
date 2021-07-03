@@ -9,13 +9,13 @@
           "child_modules": [
             {
               "category": "Dashboard",
-              "title": "Dashboard",
+              "title": "Dashboard 1",
               "label": "Dashboard 1",
               "list": []
             },
             {
               "category": "Dashboard",
-              "title": "Dashboard",
+              "title": "Dashboard 2",
               "label": "Dashboard 2",
               "list": []
             }

@@ -14,8 +14,8 @@ $nav-tab-hover: #3184ba;
     color: $text-color;
     width: 100%;
     top: 0;
-    position: absolute;
-    height: 5vw;
+    // position: absolute;
+    // height: 5vw;
     left: 0;
     @media only screen and (min-width: 320px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
         height: fit-content;
