@@ -1,0 +1,48 @@
+<div class="sidesheet-container">
+    <div class="sidesheet-title-wrapper" *ngIf="title.length > 0">
+        <h2 class="title">
+            {{title | uppercase}}
+        </h2>
+        <div class="plus">
+            <fa-icon icon="plus" size="lg"></fa-icon>
+        </div>
+    </div>
+    <div class="sidesheet-body-wrapper">
+        <div class="sidesheet-content" *ngFor="let option of optionList; let i = index">
+            <ngb-accordion class="accordion" #a="ngbAccordion" *ngIf="option?.list?.length > 0">
+                <ngb-panel >
+                    <ng-template ngbPanelHeader let-opened="opened">
+                        <div class="label">
+                            <img src="../../../assets/images/chart-black.png">
+                        <span ngbPanelToggle class="addCursor"> {{option?.label}}</span>
+                        </div>
+                        <button ngbPanelToggle class="btn button p-0">
+                            <div [ngClass]="opened ? 'arrow-down' : 'arrow-right'">
+                                <fa-icon   icon="angle-right"  size="lg"></fa-icon>
+                            </div>
+                        </button>
+                        
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                        <ul>
+                            <li class="addCursor" *ngFor="let item of option?.list" (click)="selectedOption(option,item)">
+                                {{item?.label}}
+                            </li>
+                        </ul>
+                    </ng-template>
+                </ngb-panel>
+            </ngb-accordion>
+            <div class="text" *ngIf="option?.list?.length === 0">
+                <img src="../../../assets/images/chart-black.png">
+                <span class="addCursor" (click)="selectedOption(option)">
+                    {{option?.label}}
+                </span>
+            </div>
+        </div>
+
+
+        <div class="sidesheet-item">
+
+        </div>
+    </div>
+</div>

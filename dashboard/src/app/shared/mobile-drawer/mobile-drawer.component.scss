@@ -1,0 +1,66 @@
+$header-background-color: #2c405b;
+$text-color: white;
+$nav-tab-font-size: 30px;
+$username-header-fontsize: 28px;
+$username-subtext-fontsize: 16px;
+$nav-tab-font-family: sans-serif;
+$nav-tab-hover: #3184ba;
+
+.mobile-drawer-container {
+    position: absolute;
+    background: #2a2727;
+    background-color: rgba(42, 39, 39, 0.5);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    .sidesheet {
+        width: 62%;
+        background: $header-background-color;
+        height: 100%;
+        .sidesheet-content-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: start;
+            .logo-container {
+                display: flex;
+                flex-direction: row;
+                padding: 2vw 5vw;
+                img {
+                    max-height: 10vw;
+                    align-self: center;
+                }
+                h2 {
+                    color: $text-color;
+                    font-size: 5vw;
+                    padding: 0rem 2vw;
+                    display: flex;
+                    align-items: center;
+                    height: 14vw;
+                    width: 40vw;
+                    margin: 0;
+                }
+            }
+            .sidesheet-content {
+                padding: 2vw 5vw;
+                .nav-tab {
+                    margin-top: 5vw;
+                    .tab-item {
+                        font-family: $nav-tab-font-family;
+                        color: $text-color;
+                    }
+                }
+            }
+        }
+        &.show {
+            transform: translateX(0);
+            transition: 0.3s all;
+        }
+        &.hide {
+            transform: translateX(-100%);
+            transition: 0.3s all;
+        }
+    }
+}

@@ -1,0 +1,131 @@
+$sidesheet-base-color: rgb(245, 245, 245);
+$base-font: sans-serif;
+$highligh-blue: rgb(11, 143, 226);
+
+// collapse toggle
+::ng-deep .collapse {
+    &.show {
+    }
+}
+
+::ng-deep .accordion {
+    .card {
+        border: none;
+        padding-left: 0.3rem;
+        padding-right: 2rem;
+        background: whitesmoke;
+        .card-header {
+            padding-left: 0.3rem;
+            border: none;
+            text-decoration: none;
+            color: black;
+            padding: 0;
+            box-shadow: none;
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            background-color: transparent;
+            justify-content: space-between;
+            .label {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                img {
+                    max-height: 1rem;
+                    padding-right: 1rem;
+                }
+                span {
+                }
+            }
+            .button {
+                width: 100%;
+                transition: none;
+                border: none;
+                box-shadow: none;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                background-color: inherit;
+            }
+            .arrow-down {
+                transform: rotate(90deg);
+                transition: 0.2s;
+                box-shadow: none !important;
+                border: none;
+            }
+            .arrow-left {
+                transform: rotate(90deg);
+                transition: 0.2s;
+                box-shadow: none !important;
+                border: none;
+            }
+        }
+
+        .card-body {
+            padding: 1rem;
+            padding: 0.5rem 1rem;
+            background: whitesmoke;
+            ul {
+                li {
+                    margin-top: 1vw;
+                }
+            }
+        }
+    }
+}
+
+.sidesheet-container {
+    @media only screen and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
+        display: none;
+    }
+    width: fit-content;
+    min-width: 25vw;
+    height: 100%;
+    background: $sidesheet-base-color;
+    .sidesheet-title-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 2rem 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        .title {
+            font-size: 23px;
+            font-family: sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        .plus {
+            height: fit-content;
+            border: solid 3px;
+            border-radius: 54%;
+            width: 30px;
+            text-align: center;
+        }
+        .sidesheet-accordian-container {
+            .accordion-item {
+            }
+        }
+        .sidesheet-item {
+            font-family: $base-font;
+        }
+    }
+    .sidesheet-body-wrapper {
+        .sidesheet-content {
+            margin-top: 1rem;
+            padding-left: 1rem;
+            padding-top: 1rem;
+            padding-bottom: 0.2rem;
+            padding-right: 1rem;
+            height: 3rem;
+
+            .text {
+                img {
+                    max-height: 1rem;
+                    padding-right: 0.9rem;
+                    padding-left: 0.2rem;
+                }
+            }
+        }
+    }
+}

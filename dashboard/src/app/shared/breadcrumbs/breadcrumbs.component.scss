@@ -1,0 +1,23 @@
+.breadcrumb-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    img {
+        max-height: 1.5rem;
+        margin: 0rem 1rem;
+    }
+    .breadcrumbs-wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        .breadcrumb-item {
+            width: fit-content;
+            ::before {
+                content: none;
+            }
+        }
+    }
+}

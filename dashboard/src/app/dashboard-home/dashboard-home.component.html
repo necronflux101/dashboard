@@ -1,0 +1,14 @@
+<app-header></app-header>
+<app-mobile-drawer *ngIf="showMobileSidePanel"></app-mobile-drawer>
+<div class="home-container">
+    <app-side-panel-navbar></app-side-panel-navbar>
+    <app-drawer-sidesheet></app-drawer-sidesheet>
+    <app-mobile-sidesheet *ngIf="showMobileSideSheet"></app-mobile-sidesheet>
+    <div class="custom-viewport-container">
+        <app-breadcrumbs></app-breadcrumbs>
+        <div class="dynamic-component-container"
+            [ngStyle]="{'background-color': checkCurrentTheme() === 'dark' ? '#1c293b' : ''}">
+            <div #custom></div>
+        </div>
+    </div>
+</div>

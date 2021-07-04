@@ -1,0 +1,13 @@
+<div class="breadcrumb-container" [ngStyle]="{'background-color': checkCurrentTheme() === 'dark' ? '#1c293b' : ''}">
+    <div class="dashbutton" (click)="onDashToggle()">
+        <img src="../../../assets/images/menu.png"
+            [ngStyle]="{'filter': checkCurrentTheme() === 'dark' ? 'invert(1)' : ''}">
+    </div>
+    <div class="breadcrumbs-wrapper">
+        <div class="breadcrumb-item addCursor" (click)="onSelection(path, i)"
+            *ngFor="let path of pathList; let i = index"
+            [ngStyle]="{'color': checkCurrentTheme() === 'dark' ? 'white' : ''}">
+            {{path}}
+        </div>
+    </div>
+</div>

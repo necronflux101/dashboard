@@ -1,6 +1,19 @@
 # Dashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.0.
+Prithwijit/Flux Proudly presents the first release of the Dashboard App. 
+
+The Dashboard App is created with Angular CLI Version 12
+
+Server Side Rendering Enabled (Angular Universal)
+Progressive Web Application 
+State Management with Akita 
+
+and CSS Flexbox Magic
+
+Additional Packages:
+Ng Font Awesome
+Ng Bootstrap
+RxJS
 
 ## Development server
 

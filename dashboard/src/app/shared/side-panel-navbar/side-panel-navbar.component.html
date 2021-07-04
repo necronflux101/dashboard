@@ -1,0 +1,10 @@
+<div class="navbar-container">
+    <div class="nav-options addCursor" *ngFor="let option of optionList; let i = index" (click)="selectModule(option)">
+        <div class="nav-module-icon">
+            <img [src]="option?.image">
+        </div>
+        <p class="nav-module-label">
+            {{option?.title}}
+        </p>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+.home-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    height: 100vh;
+    position: fixed;
+    @media only screen and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
+        width: 100%;
+    }
+    .custom-viewport-container {
+        @media only screen and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
+            width: 100%;
+        }
+        width: 67vw;
+
+        .dynamic-component-container {
+            padding: 2vw;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
