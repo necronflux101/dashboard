@@ -3,13 +3,13 @@
         <div class="logo-wrapper">
             <img src="../../../assets/images/logo.png">
         </div>
-        <div class="home-icon-wrapper">
+        <div class="home-icon-wrapper addCursor">
             <!-- <i class="fa fa-home" aria-hidden="true"></i> -->
             <fa-icon icon="home" size="2x" (click)="selectModule(homeOptions)"></fa-icon>
         </div>
         <div class="nav-wrapper">
             <div class="nav-tab" *ngFor="let tab of navigationList; let i = index">
-                <div class="tab-item" (click)="selectModule(tab)">
+                <div class="tab-item addCursor" (click)="selectModule(tab)">
                     {{tab?.module_name}}
                 </div>
             </div>
@@ -19,20 +19,20 @@
         </div>
     </div>
     <div class="right-content-wrapper">
-        <div class="notification">
+        <div class="notification addCursor">
             <fa-icon icon="bell" size="2x"></fa-icon>
         </div>
-        <div class="settings">
+        <div class="settings addCursor">
             <fa-icon icon="cog" size="2x"></fa-icon>
         </div>
         <div class="profile-tab">
             <img class="profile-image" src="../../../assets/images/dp.jpg">
             <div class="profile-desc">
-                <h2>John Smith</h2>
-                <p>Accounting</p>
+                <h2 class="addCursor">John Smith</h2>
+                <p class="addCursor">Accounting</p>
             </div>
         </div>
-        <div class="caret-wrapper" [ngClass]="!isAccountOptionsOpen ? '' : 'caret-down'"
+        <div class="caret-wrapper addCursor" [ngClass]="!isAccountOptionsOpen ? '' : 'caret-down'"
             (click)="openAccountOptions()">
             <fa-icon icon="caret-down" size="2x"></fa-icon>
         </div>

@@ -17,7 +17,7 @@ $nav-tab-hover: #3184ba;
     // position: absolute;
     // height: 5vw;
     left: 0;
-    @media only screen and (min-width: 320px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
+    @media only screen and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
         height: fit-content;
     }
     .left-content-wrapper {
@@ -25,7 +25,7 @@ $nav-tab-hover: #3184ba;
         flex-direction: row;
 
         .logo-wrapper {
-            @media only screen and (min-width: 320px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
+            @media only screen and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
                 display: none;
             }
             display: flex;
@@ -39,7 +39,7 @@ $nav-tab-hover: #3184ba;
             }
         }
         .home-icon-wrapper {
-            @media only screen and (min-width: 320px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
+            @media only screen and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
                 display: none;
             }
             display: flex;
@@ -52,7 +52,7 @@ $nav-tab-hover: #3184ba;
             }
         }
         .nav-wrapper {
-            @media only screen and (min-width: 320px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
+            @media only screen and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
                 display: none;
             }
             display: flex;
@@ -78,7 +78,7 @@ $nav-tab-hover: #3184ba;
 
         .nav-sandwich {
             display: none;
-            @media only screen and (min-width: 320px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
+            @media only screen and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
                 margin-left: 3.5vw;
                 display: flex;
                 flex-direction: column;
@@ -102,7 +102,7 @@ $nav-tab-hover: #3184ba;
             &:hover {
                 border-top: solid $nav-tab-hover 7px;
             }
-            @media only screen and (min-width: 320px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
+            @media only screen and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
                 padding: 0vw 4vw;
             }
         }
@@ -115,7 +115,7 @@ $nav-tab-hover: #3184ba;
             &:hover {
                 border-top: solid $nav-tab-hover 4px;
             }
-            @media only screen and (min-width: 320px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
+            @media only screen and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
                 padding: 0vw 4vw;
             }
         }
@@ -126,13 +126,13 @@ $nav-tab-hover: #3184ba;
             .profile-image {
                 max-height: 3vw;
                 padding: 1vw;
-                @media only screen and (min-width: 320px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
+                @media only screen and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
                     max-height: 3rem;
                     padding: 4vw;
                 }
             }
             .profile-desc {
-                @media only screen and (min-width: 320px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
+                @media only screen  and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
                     display: none;
                 }
                 h2 {
@@ -150,7 +150,7 @@ $nav-tab-hover: #3184ba;
         }
         .caret-wrapper {
             margin: 0vw 4vw 0vw 2vw;
-            @media only screen and (min-width: 320px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
+            @media only screen  and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
                 margin: 0vw 9vw 0vw 2vw;
             }
             &.caret-down {

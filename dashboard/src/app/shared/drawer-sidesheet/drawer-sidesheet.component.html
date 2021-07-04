@@ -8,15 +8,24 @@
         </div>
     </div>
     <div class="sidesheet-body-wrapper">
-        <div *ngFor="let option of optionList; let i = index">
-            <ngb-accordion class="accordion" #acc="ngbAccordion" *ngIf="option?.list?.length > 0">
-                <ngb-panel>
-                    <ng-template ngbPanelTitle>
-                        <span>&#9733; {{option?.label}}</span>
+        <div class="sidesheet-content" *ngFor="let option of optionList; let i = index">
+            <ngb-accordion class="accordion" #a="ngbAccordion" *ngIf="option?.list?.length > 0">
+                <ngb-panel >
+                    <ng-template ngbPanelHeader let-opened="opened">
+                        <div class="label">
+                            <img src="../../../assets/images/chart-black.png">
+                        <span ngbPanelToggle class="addCursor"> {{option?.label}}</span>
+                        </div>
+                        <button ngbPanelToggle class="btn button p-0">
+                            <div [ngClass]="opened ? 'arrow-down' : 'arrow-right'">
+                                <fa-icon   icon="angle-right"  size="lg"></fa-icon>
+                            </div>
+                        </button>
+                        
                     </ng-template>
                     <ng-template ngbPanelContent>
                         <ul>
-                            <li *ngFor="let item of option?.list" (click)="selectedOption(option,item)">
+                            <li class="addCursor" *ngFor="let item of option?.list" (click)="selectedOption(option,item)">
                                 {{item?.label}}
                             </li>
                         </ul>
@@ -24,8 +33,8 @@
                 </ngb-panel>
             </ngb-accordion>
             <div class="text" *ngIf="option?.list?.length === 0">
-                <img>
-                <span (click)="selectedOption(option)">
+                <img src="../../../assets/images/chart-black.png">
+                <span class="addCursor" (click)="selectedOption(option)">
                     {{option?.label}}
                 </span>
             </div>
