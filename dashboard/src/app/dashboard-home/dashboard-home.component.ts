@@ -11,6 +11,8 @@ export class DashboardHomeComponent implements OnInit {
 
   @ViewChild('custom', { read: ViewContainerRef }) customComponentLoader: ViewContainerRef;
 
+  showMobileSidePanel : boolean = false;
+
   constructor(
     private sitewideConfigService: SiteWideConfigurationService,
     private containerRef: ViewContainerRef,
@@ -22,10 +24,18 @@ export class DashboardHomeComponent implements OnInit {
   ngOnInit(): void {
     this.getNavSectionDataServiceCall();
     this.loadComponent();
+    this.getMobileDrawerState();
   }
 
   getNavSectionDataServiceCall(): void {
     this.sitewideConfigService.getNavSectionData().subscribe();
+  }
+
+  getMobileDrawerState(): void{
+    this.sitewideConfigService.getSidePanelDrawerState().subscribe((display) => {
+      this.showMobileSidePanel = display;
+      console.log('Showing Side Panel: ', this.showMobileSidePanel);
+    })
   }
 
   loadComponent(): void {

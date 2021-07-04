@@ -1,7 +1,17 @@
-<div class="mobile-drawer-container">
-    <div class="sidesheet" [ngClass]="displaySheet ? 'show' : 'hide'">   
+<div class="mobile-drawer-container" (click)="onClick($event)">
+    <div class="sidesheet"
+        [ngClass]="displaySheet ? 'show' : 'hide'">   
         <div class="sidesheet-content-wrapper">
+            <div class="logo-container">
+                <img src="../../../assets/images/logo.png">
+                <h2> SAMPLE 1.0</h2>
+            </div>
             <div class="sidesheet-content">
+                <div class="nav-tab" *ngFor="let tab of navigationList; let i = index">
+                    <div class="tab-item addCursor" (click)="selectModule(tab)">
+                        {{tab?.module_name}}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

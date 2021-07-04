@@ -124,11 +124,11 @@ $nav-tab-hover: #3184ba;
             flex-direction: row;
             align-items: center;
             .profile-image {
-                max-height: 3vw;
-                padding: 1vw;
+                max-height: 6rem;
+                padding: 1.2rem;
                 @media only screen and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
                     max-height: 3rem;
-                    padding: 4vw;
+                    padding: 0.5rem;
                 }
             }
             .profile-desc {

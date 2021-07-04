@@ -72,4 +72,10 @@ export class HeaderComponent implements OnInit {
     this.breadCrumbsService.updateBreadCrumbsState(breadcrumbspath);
     this.sitewideConfigService.updateBreadCrumbs(breadcrumbspath);
   }
+
+  // Mobile View
+  toggleMobileMenu(): void {
+    // Open Side Panel Menu on Mobile
+    this.sitewideConfigService.updateSidePanelDrawerState(true);
+  }
 }

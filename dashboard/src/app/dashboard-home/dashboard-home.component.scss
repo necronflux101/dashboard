@@ -4,7 +4,13 @@
     flex-direction: row;
     height: 100vh;
     position: fixed;
+    @media only screen and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
+        width: 100%;
+    }
     .custom-viewport-container{
+        @media only screen and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
+            width: 100%;
+        }
         width: 67vw;
     }
 }

@@ -2,12 +2,22 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     img {
-        max-width: 2vw;
-        margin: 1rem;
+        max-height: 1.2rem;
+        margin: 0rem 1rem;
     }
-    .breadcrumb-item {
-        width: fit-content;
-        margin-top: 1rem;
+    .breadcrumbs-wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        .breadcrumb-item {
+            width: fit-content;
+            ::before {
+                content: none;
+            }
+        }
     }
 }

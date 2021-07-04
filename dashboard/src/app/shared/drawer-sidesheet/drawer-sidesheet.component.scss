@@ -1,6 +1,6 @@
 $sidesheet-base-color: rgb(245, 245, 245);
 $base-font: sans-serif;
-$highligh-blue: rgb(11,143,226);
+$highligh-blue: rgb(11, 143, 226);
 
 // collapse toggle
 ::ng-deep .collapse {
@@ -26,18 +26,18 @@ $highligh-blue: rgb(11,143,226);
             flex-direction: row;
             background-color: transparent;
             justify-content: space-between;
-            .label{
+            .label {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                img{
+                img {
                     max-height: 1rem;
                     padding-right: 1rem;
                 }
                 span {
                 }
             }
-            .button{
+            .button {
                 width: 100%;
                 transition: none;
                 border: none;
@@ -59,8 +59,6 @@ $highligh-blue: rgb(11,143,226);
                 box-shadow: none !important;
                 border: none;
             }
-            
-            
         }
 
         .card-body {
@@ -77,6 +75,9 @@ $highligh-blue: rgb(11,143,226);
 }
 
 .sidesheet-container {
+    @media only screen and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
+        display: none;
+    }
     width: fit-content;
     min-width: 25vw;
     height: 100%;
@@ -116,9 +117,9 @@ $highligh-blue: rgb(11,143,226);
             padding-bottom: 0.2rem;
             padding-right: 1rem;
             height: 3rem;
-            
+
             .text {
-                img{
+                img {
                     max-height: 1rem;
                     padding-right: 0.9rem;
                     padding-left: 0.2rem;

@@ -12,6 +12,8 @@ export class SiteWideConfigurationService {
     private activeSubModule = new Subject<any>();
     private breadCrumbList = new Subject<any>();
     private renderTarget = new Subject<any>();
+    private sideMenuDrawerMobile = new Subject<any>();
+    private sideSheetMobile = new Subject<any>();
 
     constructor(
         private http: HttpClient,
@@ -63,6 +65,24 @@ export class SiteWideConfigurationService {
 
     getRenderTarget(): Observable<string> {
         return this.renderTarget.asObservable();
+    }
+
+    // Mobile Side Panel Draerr
+    updateSidePanelDrawerState(data: boolean): void {
+        this.sideMenuDrawerMobile.next(data);
+    }
+
+    getSidePanelDrawerState(): Observable<boolean> {
+        return this.sideMenuDrawerMobile.asObservable();
+    }
+
+    // Mobile Side Sheet
+    updateSidePanelSheetState(data: boolean): void {
+        this.sideSheetMobile.next(data);
+    }
+
+    getSidePanelSheetState(): Observable<boolean> {
+        return this.sideSheetMobile.asObservable();
     }
 
     // Service Call

@@ -2,7 +2,10 @@
     <div class="dashbutton" (click)="onDashToggle()">
         <img src="../../../assets/images/chart-black.png">
     </div>
-    <div class="breadcrumb-item addCursor" (click)="onSelection(path, i)" *ngFor="let path of pathList; let i = index">
-        {{path}} 
+    <div class="breadcrumbs-wrapper">
+        <div class="breadcrumb-item addCursor" (click)="onSelection(path, i)" 
+        *ngFor="let path of pathList; let i = index">
+    {{path}} 
+</div>
     </div>
 </div>
