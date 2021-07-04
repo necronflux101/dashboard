@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, QueryList } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
@@ -10,7 +10,7 @@ import { MobileDrawerComponent } from './mobile-drawer/mobile-drawer.component';
 import { SidePanelNavbarComponent } from './side-panel-navbar/side-panel-navbar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NgbAccordionModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordionModule, NgbDropdown, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { MobileSidesheetComponent } from './mobile-sidesheet/mobile-sidesheet.component';
 
 
@@ -39,6 +39,10 @@ import { MobileSidesheetComponent } from './mobile-sidesheet/mobile-sidesheet.co
     SidePanelNavbarComponent,
     BreadcrumbsComponent,
     MobileSidesheetComponent
+  ],
+  providers: [
+    NgbDropdown,
+    QueryList
   ]
 })
 export class SharedModule { 

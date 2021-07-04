@@ -10,7 +10,6 @@ export class BreadCrumbsService {
     }
 
     updateBreadCrumbsState(state: any) {
-        console.log('Update Breadcrumbs State: ', state);
         const paths = {
             paths: state
         }

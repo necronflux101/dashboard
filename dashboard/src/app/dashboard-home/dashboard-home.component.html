@@ -6,6 +6,9 @@
     <app-mobile-sidesheet *ngIf="showMobileSideSheet"></app-mobile-sidesheet>
     <div class="custom-viewport-container">
         <app-breadcrumbs></app-breadcrumbs>
-        <div #custom></div>
+        <div class="dynamic-component-container"
+            [ngStyle]="{'background-color': checkCurrentTheme() === 'dark' ? '#1c293b' : ''}">
+            <div #custom></div>
+        </div>
     </div>
 </div>

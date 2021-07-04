@@ -14,8 +14,6 @@ $nav-tab-hover: #3184ba;
     color: $text-color;
     width: 100%;
     top: 0;
-    // position: absolute;
-    // height: 5vw;
     left: 0;
     @media only screen and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
         height: fit-content;
@@ -153,10 +151,26 @@ $nav-tab-hover: #3184ba;
             @media only screen  and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2) {
                 margin: 0vw 9vw 0vw 2vw;
             }
-            &.caret-down {
+            .caret-down {
                 transform: rotate(180deg);
                 transition: 0.2s all;
             }
+        }
+    }
+}
+
+::ng-deep .dropdown-toggle::after{
+    display: none;
+}
+
+::ng-deep .dropdownMenu{
+    left: -9rem !important;
+    .dropdownItem{
+        width: 100%;
+        display: flex;
+        img{
+            max-height: 1.5rem;
+            padding-right: 1rem;
         }
     }
 }

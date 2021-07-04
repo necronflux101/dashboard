@@ -34,7 +34,7 @@ export class MobileSidesheetComponent implements OnInit {
       //this.getNavOptions();
     }, 50);
     this.initData();
-    }
+  }
 
   onClick(event: any) {
     if (event.target.className.includes('sidesheet show')) {
@@ -51,10 +51,10 @@ export class MobileSidesheetComponent implements OnInit {
 
   initData() {
     let sideNavOptionSelected = null
-    if(typeof window !== 'undefined'){
+    if (typeof window !== 'undefined') {
       sideNavOptionSelected = sessionStorage.getItem('selectedSideNavModule');
     }
-    if(sideNavOptionSelected){
+    if (sideNavOptionSelected) {
       sideNavOptionSelected = JSON.parse(sideNavOptionSelected);
       this.sideNavOptionList = [];
       sideNavOptionSelected?.child_modules?.forEach((element: any) => {
@@ -65,13 +65,10 @@ export class MobileSidesheetComponent implements OnInit {
     this.sitewideConfigService.getActiveSubModule().subscribe((moduleData) => {
       this.title = moduleData?.title;
       this.optionList = [];
-      console.log(moduleData);
       moduleData?.child_modules?.forEach((element: any) => {
         this.optionList.push(element);
       });
-      console.log(this.optionList);
       this.originalBreadCrumblist = this.breadCrumbsQuery.getValue().paths;
-      console.log('Original Path Updated: ', this.originalBreadCrumblist);
     });
 
     // Initialize Side Sheet for first Selection
@@ -81,7 +78,6 @@ export class MobileSidesheetComponent implements OnInit {
 
   // Side Panel
   selectModule(moduleData: any): void {
-    console.log('selected', moduleData);
     this.setBreadCrumbsOnMobileSidePanel(moduleData);
     this.sitewideConfigService.updateActiveSubModule(moduleData);
   }
@@ -89,20 +85,19 @@ export class MobileSidesheetComponent implements OnInit {
   setBreadCrumbsOnMobileSidePanel(moduleData: any): void {
     let breadcrumbspath = [];
     breadcrumbspath = this.breadCrumbsQuery.getValue().paths;
-    breadcrumbspath = breadcrumbspath.splice(0,1);
+    breadcrumbspath = breadcrumbspath.splice(0, 1);
     breadcrumbspath.push(moduleData?.title)
     breadcrumbspath.push(moduleData?.child_modules[0]?.title);
     //breadcrumbspath.push(moduleData?.child_modules[0]?.child_modules[0]?.title);
     if (moduleData?.child_modules[0]?.list.length > 0) {
       breadcrumbspath.push(moduleData?.child_modules[0]?.list[0]?.title);
-    } console.log('Set Breadcrumbs: ', breadcrumbspath);
+    }
     this.sitewideConfigService.updateBreadCrumbs(breadcrumbspath);
     this.breadCrumbsService.updateBreadCrumbsState(breadcrumbspath);
   }
 
   // Side Sheet
   selectedOption(moduleData: any, listItem?: any): void {
-    console.log('Selected Option: ', moduleData);
     if (listItem) {
       this.setBreadCrumbs(moduleData, listItem);
     }
@@ -113,26 +108,19 @@ export class MobileSidesheetComponent implements OnInit {
   }
 
   setBreadCrumbs(moduleData: any, listItem?: any): void {
-    console.log('Original List', this.originalBreadCrumblist);
     let breadcrumbspath = [];
     breadcrumbspath = this.breadCrumbsQuery.getValue().paths;
-    if(breadcrumbspath.length <= 2){
-      breadcrumbspath = this.originalBreadCrumblist.slice(0,2);
-      console.log('Slice Breadcrumbs:',breadcrumbspath);
+    if (breadcrumbspath.length <= 2) {
+      breadcrumbspath = this.originalBreadCrumblist.slice(0, 2);
     }
-    // Re create Full Original Path
-    //if (this.breadCrumbsQuery.getValue().paths.length >= 2) {
 
-      breadcrumbspath = breadcrumbspath.slice(0,2);
-      breadcrumbspath.push(moduleData?.title);
-      if (listItem) {
-        breadcrumbspath.push(listItem.title);
-      }
-      console.log('Set Breadcrumbs: ', breadcrumbspath);
-    //}
+    breadcrumbspath = breadcrumbspath.slice(0, 2);
+    breadcrumbspath.push(moduleData?.title);
+    if (listItem) {
+      breadcrumbspath.push(listItem.title);
+    }
     this.sitewideConfigService.updateBreadCrumbs(breadcrumbspath);
     this.breadCrumbsService.updateBreadCrumbsState(breadcrumbspath);
-    // }
   }
 
 }

@@ -34,11 +34,9 @@ export class MobileDrawerComponent implements OnInit {
     this.sitewideConfigQuery.getValue().navOptions.forEach((navItem) => {
       this.navigationList.push(navItem);
     });
-    console.log('Mobile list', this.navigationList);
   }
 
   selectModule(moduleData: any): void {
-    console.log('selected', moduleData);
     this.setBreadCrumbs(moduleData);
     this.sitewideConfigService.updateActiveModule(moduleData);
     this.sitewideConfigService.updateActiveSubModule(moduleData?.child_modules[0]);

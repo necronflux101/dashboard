@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { BreadCrumbsService } from 'src/app/state/breadcrumbs/breadcrumbs.service';
 import { SiteWideConfigurationQuery } from 'src/app/state/sitewide-configuration/sitewide-configuration.query';
 import { SiteWideConfigurationService } from 'src/app/state/sitewide-configuration/sitewide-configuration.service';
@@ -10,6 +11,10 @@ import { SiteWideConfigurationService } from 'src/app/state/sitewide-configurati
 })
 export class HeaderComponent implements OnInit {
 
+  @ViewChildren(NgbDropdown)
+  dropdowns: QueryList<NgbDropdown>;
+  dropdown: NgbDropdown;
+
   navigationList: Array<any> = [];
   isAccountOptionsOpen = false;
   homeOptions = null;
@@ -17,8 +22,13 @@ export class HeaderComponent implements OnInit {
   constructor(
     private sitewideConfigService: SiteWideConfigurationService,
     private sitewideConfigQuery: SiteWideConfigurationQuery,
-    private breadCrumbsService: BreadCrumbsService
-  ) { }
+    private breadCrumbsService: BreadCrumbsService,
+    private dropDown: NgbDropdown,
+    private dropDowns: QueryList<NgbDropdown>
+  ) {
+    this.dropdown = dropDown;
+    this.dropdowns = dropDowns;
+  }
 
   ngOnInit(): void {
     this.getNavOptions();
@@ -40,7 +50,6 @@ export class HeaderComponent implements OnInit {
             this.navigationList.push(navItem);
           }
         });
-        console.log('list', this.navigationList);
       }
     })
   }
@@ -55,13 +64,12 @@ export class HeaderComponent implements OnInit {
   }
 
   selectModule(moduleData: any): void {
-    console.log('selected', moduleData);
     this.setBreadCrumbs(moduleData);
     this.sitewideConfigService.updateActiveModule(moduleData);
     this.sitewideConfigService.updateActiveSubModule(moduleData?.child_modules[0]);
 
     // Set Session Storage For Mobile View
-    if(typeof window !== 'undefined'){ // For SSR Browser Check
+    if (typeof window !== 'undefined') { // For SSR Browser Check
       sessionStorage.setItem('selectedSideNavModule', JSON.stringify(moduleData));
     }
   }
@@ -71,7 +79,7 @@ export class HeaderComponent implements OnInit {
     breadcrumbspath.push(moduleData.module_name)
     breadcrumbspath.push(moduleData?.child_modules[0]?.title);
     breadcrumbspath.push(moduleData?.child_modules[0]?.child_modules[0]?.title);
-    if(moduleData?.child_modules[0]?.child_modules[0]?.list.length > 0){
+    if (moduleData?.child_modules[0]?.child_modules[0]?.list.length > 0) {
       breadcrumbspath.push(moduleData?.child_modules[0]?.child_modules[0]?.list[0]?.title);
     }
     this.breadCrumbsService.updateBreadCrumbsState(breadcrumbspath);
@@ -82,5 +90,37 @@ export class HeaderComponent implements OnInit {
   toggleMobileMenu(): void {
     // Open Side Panel Menu on Mobile
     this.sitewideConfigService.updateSidePanelDrawerState(true);
+  }
+
+  checkDropDown(dropdown: any): boolean {
+    const dropdowns = this.dropdowns.find(x => (x as any)._elementRef.nativeElement == dropdown);
+    if (dropdowns) {
+      this.dropdown = dropdowns;
+      // Check if the clicked dropdown is open
+      return this.dropdown.isOpen();
+    }
+    return false;
+  }
+
+  onDropDownOptionClick(option: any){
+    switch(option){
+      case 'bright':
+        if(typeof window !== 'undefined'){
+          sessionStorage.setItem('theme', 'normal');
+        }
+        break;
+
+      case 'dark':
+        if(typeof window !== 'undefined'){
+          sessionStorage.setItem('theme', 'dark');
+        }
+        break;
+
+      case 'signout':
+        if(typeof window !== 'undefined'){
+          window.alert('Signing User Out');
+        } 
+        break;
+    }
   }
 }

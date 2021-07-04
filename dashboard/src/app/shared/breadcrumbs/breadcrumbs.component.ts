@@ -25,15 +25,13 @@ export class BreadcrumbsComponent implements OnInit {
   initData() {
     this.sitewideConfigService.getBreadCrumbs().subscribe((list) => {
       this.pathList = list;
-      console.log('BreadCrumbs list: ', this.pathList);
       this.onSelection(this.pathList[this.pathList.length - 1], this.pathList.length - 1);
     });
   }
 
   onSelection(selected: any, index: any) {
-    console.log('Route to : ', selected, this.pathList[this.pathList.length - 1], index);
     let routeTarget = '';
-    // TODO: More paths can be maintain and point for exlusion using service 
+    // TODO: More paths can be maintained and point for exclusion using service 
     switch (selected) {
       case 'Performance Indicator':
         routeTarget = 'pi';
@@ -56,4 +54,11 @@ export class BreadcrumbsComponent implements OnInit {
     this.sitewideConfigService.updateSidePanelSheetState(true);
   }
 
+  checkCurrentTheme(): string | null {
+    if (typeof window !== 'undefined') {
+      const theme = sessionStorage.getItem('theme');
+      return theme;
+    }
+    return ''
+  }
 }

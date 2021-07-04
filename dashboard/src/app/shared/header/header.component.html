@@ -32,9 +32,25 @@
                 <p class="addCursor">Accounting</p>
             </div>
         </div>
-        <div class="caret-wrapper addCursor" [ngClass]="!isAccountOptionsOpen ? '' : 'caret-down'"
+        <div ngbDropdown #drop1 class="caret-wrapper addCursor"
             (click)="openAccountOptions()">
-            <fa-icon icon="caret-down" size="2x"></fa-icon>
+            <div [ngClass]="!checkDropDown(drop1) ? '' : 'caret-down'" ngbDropdownToggle>
+                <fa-icon icon="caret-down" size="2x"></fa-icon>
+            </div>
+            <div ngbDropdownMenu aria-labelledby="dropdownForm1" class="dropdownMenu">
+                <div ngbDropdownItem class="dropdownItem" (click)="onDropDownOptionClick('bright')">
+                    <img src="../../../assets/images/sun-black.png">
+                    <p>Light Theme</p>
+                </div>
+                <div ngbDropdownItem class="dropdownItem" (click)="onDropDownOptionClick('dark')">
+                    <img src="../../../assets/images/sun-black-filled.png">
+                    <p>Dark Theme</p>
+                </div>
+                <div ngbDropdownItem class="dropdownItem" (click)="onDropDownOptionClick('signout')">
+                    <img src="../../../assets/images/signout.png">
+                    <p>Sign Out</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

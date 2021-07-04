@@ -108,12 +108,9 @@ $highligh-blue: rgb(11, 143, 226);
         // Nab Bar
         .navbar-container {
             top: 5vw;
-            // position: absolute;
-            //height: calc(100% - 5vw);
             height: 100%;
             width: 25vw;
             background: $navbar-basecolor;
-            //left: 0;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -137,7 +134,7 @@ $highligh-blue: rgb(11, 143, 226);
 
         // Side Sheet CSS
         .sidesheet-container {
-            width: fit-content;
+            width: 60vw;
             min-width: 25vw;
             height: 100%;
             background: $sidesheet-base-color;

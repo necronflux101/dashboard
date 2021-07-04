@@ -36,7 +36,6 @@ export class DashboardHomeComponent implements OnInit {
   getMobileDrawerState(): void{
     this.sitewideConfigService.getSidePanelDrawerState().subscribe((display) => {
       this.showMobileSidePanel = display;
-      console.log('Showing Side Panel: ', this.showMobileSidePanel);
     })
   }
 
@@ -66,4 +65,11 @@ export class DashboardHomeComponent implements OnInit {
     })
   }
 
+  checkCurrentTheme(): string | null {
+    if (typeof window !== 'undefined') {
+      const theme = sessionStorage.getItem('theme');
+      return theme;
+    }
+    return ''
+  }
 }
