@@ -87,6 +87,7 @@ $highligh-blue: rgb(11, 143, 226);
         flex-direction: row;
         justify-content: space-between;
         padding: 2rem 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         .title {
             font-size: 23px;
             font-family: sans-serif;

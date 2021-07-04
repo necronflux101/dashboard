@@ -53,7 +53,7 @@ export class BreadcrumbsComponent implements OnInit {
   }
 
   onDashToggle() {
-
+    this.sitewideConfigService.updateSidePanelSheetState(true);
   }
 
 }

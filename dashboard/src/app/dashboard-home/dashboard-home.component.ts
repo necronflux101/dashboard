@@ -12,6 +12,7 @@ export class DashboardHomeComponent implements OnInit {
   @ViewChild('custom', { read: ViewContainerRef }) customComponentLoader: ViewContainerRef;
 
   showMobileSidePanel : boolean = false;
+  showMobileSideSheet : boolean = false;
 
   constructor(
     private sitewideConfigService: SiteWideConfigurationService,
@@ -25,6 +26,7 @@ export class DashboardHomeComponent implements OnInit {
     this.getNavSectionDataServiceCall();
     this.loadComponent();
     this.getMobileDrawerState();
+    this.getMobileSideSheetState();
   }
 
   getNavSectionDataServiceCall(): void {
@@ -35,6 +37,12 @@ export class DashboardHomeComponent implements OnInit {
     this.sitewideConfigService.getSidePanelDrawerState().subscribe((display) => {
       this.showMobileSidePanel = display;
       console.log('Showing Side Panel: ', this.showMobileSidePanel);
+    })
+  }
+
+  getMobileSideSheetState(): void {
+    this.sitewideConfigService.getSidePanelSheetState().subscribe((display) => {
+      this.showMobileSideSheet = display;
     })
   }
 

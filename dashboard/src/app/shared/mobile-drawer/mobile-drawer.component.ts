@@ -9,7 +9,7 @@ import { SiteWideConfigurationService } from 'src/app/state/sitewide-configurati
   templateUrl: './mobile-drawer.component.html',
   styleUrls: ['./mobile-drawer.component.scss']
 })
-export class MobileDrawerComponent implements OnInit, OnDestroy {
+export class MobileDrawerComponent implements OnInit {
 
   displaySheet = false;
   navigationList: Array<any> = [];
@@ -29,10 +29,6 @@ export class MobileDrawerComponent implements OnInit, OnDestroy {
     }, 50);
   }
 
-  ngOnDestroy(): void {
-    this.displaySheet = false;
-  }
-
   getNavOptions() {
     this.navigationList = [];
     this.sitewideConfigQuery.getValue().navOptions.forEach((navItem) => {
@@ -46,6 +42,12 @@ export class MobileDrawerComponent implements OnInit, OnDestroy {
     this.setBreadCrumbs(moduleData);
     this.sitewideConfigService.updateActiveModule(moduleData);
     this.sitewideConfigService.updateActiveSubModule(moduleData?.child_modules[0]);
+    // Set Session Storage For Mobile View
+    if(typeof window !== 'undefined'){ // For SSR Browser Check
+      sessionStorage.setItem('selectedSideNavModule', JSON.stringify(moduleData));
+    }
+
+    this.closeDrawer();
   }
 
   setBreadCrumbs(moduleData: any): void {

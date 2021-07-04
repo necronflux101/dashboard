@@ -33,7 +33,7 @@ $nav-tab-hover: #3184ba;
                     align-self: center;
                 }
                 h2 {
-                    color: white;
+                    color: $text-color;
                     font-size: 5vw;
                     padding: 0rem 2vw;
                     display: flex;
@@ -48,8 +48,8 @@ $nav-tab-hover: #3184ba;
                 .nav-tab {
                     margin-top: 5vw;
                     .tab-item {
-                        font-family: sans-serif;
-                        color: white;
+                        font-family: $nav-tab-font-family;
+                        color: $text-color;
                     }
                 }
             }

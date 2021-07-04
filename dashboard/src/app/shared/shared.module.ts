@@ -10,7 +10,8 @@ import { MobileDrawerComponent } from './mobile-drawer/mobile-drawer.component';
 import { SidePanelNavbarComponent } from './side-panel-navbar/side-panel-navbar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordionModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { MobileSidesheetComponent } from './mobile-sidesheet/mobile-sidesheet.component';
 
 
 
@@ -20,21 +21,24 @@ import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
     RouterModule,
     FontAwesomeModule,
     HttpClientModule,
-    NgbAccordionModule
+    NgbAccordionModule,
+    NgbDropdownModule
   ],
   declarations: [
     HeaderComponent,
     DrawerSidesheetComponent,
     MobileDrawerComponent,
     SidePanelNavbarComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    MobileSidesheetComponent
   ],
   exports: [
     HeaderComponent,
     DrawerSidesheetComponent,
     MobileDrawerComponent,
     SidePanelNavbarComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    MobileSidesheetComponent
   ]
 })
 export class SharedModule { 

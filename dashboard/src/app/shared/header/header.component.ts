@@ -59,6 +59,11 @@ export class HeaderComponent implements OnInit {
     this.setBreadCrumbs(moduleData);
     this.sitewideConfigService.updateActiveModule(moduleData);
     this.sitewideConfigService.updateActiveSubModule(moduleData?.child_modules[0]);
+
+    // Set Session Storage For Mobile View
+    if(typeof window !== 'undefined'){ // For SSR Browser Check
+      sessionStorage.setItem('selectedSideNavModule', JSON.stringify(moduleData));
+    }
   }
 
   setBreadCrumbs(moduleData: any): void {
