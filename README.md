@@ -1,7 +1,5 @@
 # Dashboard
 
-Prithwijit/Flux Proudly presents the first release of the Dashboard App. 
-
 The Dashboard App is created with Angular CLI Version 12
 
 Server Side Rendering Enabled (Angular Universal)
